@@ -1,6 +1,17 @@
 package collections;
 import java.util.*;
 
+class Student{  
+	  int rollno;  
+	  String name;  
+	  int age;  
+	  Student(int rollno,String name,int age){  
+	   this.rollno=rollno;  
+	   this.name=name;  
+	   this.age=age;  
+	  }  
+	}
+
 public class ArrayListExample {
 
 	public static void main(String[] args) {
@@ -12,7 +23,7 @@ public class ArrayListExample {
 		fruits.add("Apple");
 		fruits.add("Orange");
 		System.out.println(fruits);
-		Iterator itr = fruits.iterator();
+		Iterator<String> itr = fruits.iterator();
 		while(itr.hasNext()) {
 			System.out.print(itr.next()+" ");
 		}
@@ -21,6 +32,18 @@ public class ArrayListExample {
 		for(String fruit: fruits) {
 			System.out.println(fruit);
 		}
+		Student s1 = new Student(110, "Charan", 24);
+		Student s2 = new Student(132, "Rakesh", 25);
+		Student s3 = new Student(103, "Pranav", 22);
+		ArrayList<Student> studentList = new ArrayList<Student>();
+		studentList.add(s1);
+		studentList.add(s2);
+		studentList.add(s3);
+		Iterator<Student> studentIterator = studentList.iterator();
+		int count = 0;
+		while(studentIterator.hasNext()) {
+			Student student = (Student)studentIterator.next();
+			System.out.println(++count + ". Name:"+student.name+" Roll-No.:"+student.rollno+" Age:"+student.age);
+		}
 	}
-
 }
